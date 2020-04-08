@@ -3,7 +3,9 @@ Simple lambda function to take events posted to SNS from TrendMicro and post the
 
 ## Installation
 1. Create an SNS Topic in your AWS account
-2. Create a Lambda function using the `.zip` found in [Releases]() (or clone the repo, make changes, and publish)
+2. Create a Lambda function using the `.zip` found in [Releases](https://github.com/nwestfall/TrendMicroToDatadog/releases) (or clone the repo, make changes, and publish)
+   - Runtime: dotnetcore3.1
+   - Handler: `TrendMicroToDatadog::TrendMicroToDatadog.Function::FunctionHandler`
 3. Setup the Lambda function as a subscriber to the topic
 4. Add `DATADOG_URL` and `DATADOG_API_KEY` as Environment Variables in your Lambda Function
 5. Setup Trend Micro to send events to SNS - [https://help.deepsecurity.trendmicro.com/event-sns.html](https://help.deepsecurity.trendmicro.com/event-sns.html)
