@@ -91,9 +91,11 @@ namespace TrendMicroToDatadog
                 if(!string.IsNullOrEmpty(trendMicroEvent.Tags))
                 {
                     var tags = trendMicroEvent.Tags.Split(',');
-                    datadogEvent.Tags = tags;
+                    datadogEvent.Tags = tags.ToList();
                 }
-                datadogEvent.Tags.Append(SOURCE_NAME);
+                else
+                    datadogEvent.Tags = new List<string>();
+                datadogEvent.Tags.Add(SOURCE_NAME);
                 // Set aggregation
                 datadogEvent.AggregationKey = record.Sns.MessageId;
                 // Related Event

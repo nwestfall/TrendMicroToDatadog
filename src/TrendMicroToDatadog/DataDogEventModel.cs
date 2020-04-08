@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace TrendMicroToDatadog.Models
@@ -23,7 +24,7 @@ namespace TrendMicroToDatadog.Models
         [JsonPropertyName("host")]
         public string Host { get; set; }
         [JsonPropertyName("tags")]
-        public string[] Tags { get; set; }
+        public IList<string> Tags { get; set; }
         [JsonPropertyName("alert_type")]
         public string AlertType { get; set; }
         [JsonPropertyName("aggregation_key")]
