@@ -1,0 +1,13 @@
+{
+  "Information": [
+    "Take events sent to AWS SNS from Trend Micro and post them as events in Datadog."
+  ],
+  "profile": "",
+  "region": "us-east-1",
+  "configuration": "Release",
+  "framework": "netcoreapp3.1",
+  "function-runtime": "dotnetcore3.1",
+  "function-memory-size": 256,
+  "function-timeout": 30,
+  "function-handler": "TrendMicroToDatadog::TrendMicroToDatadog.Function::FunctionHandler"
+}
