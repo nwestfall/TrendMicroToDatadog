@@ -18,6 +18,8 @@ namespace TrendMicroToDatadog
 {
     public class Function
     {
+        const string SOURCE_NAME = "trendmicro_deepsecurity";
+
         readonly string DATADOG_URL;
         readonly string DATADOG_API_KEY;
         readonly HttpClient _datadogClient;
@@ -72,7 +74,7 @@ namespace TrendMicroToDatadog
             foreach(var trendMicroEvent in trendMicroEvents)
             {
                 DataDogEventModel datadogEvent = new DataDogEventModel();
-                datadogEvent.SourceTypeName = "trendmicro_deepsecurity";
+                datadogEvent.SourceTypeName = SOURCE_NAME;
                 // Determine Host
                 if(!string.IsNullOrEmpty(trendMicroEvent.HostName))
                     datadogEvent.Host = trendMicroEvent.HostName;
@@ -91,6 +93,7 @@ namespace TrendMicroToDatadog
                     var tags = trendMicroEvent.Tags.Split(',');
                     datadogEvent.Tags = tags;
                 }
+                datadogEvent.Tags.Append(SOURCE_NAME);
                 // Set aggregation
                 datadogEvent.AggregationKey = record.Sns.MessageId;
                 // Related Event

@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace TrendMicroToDatadog.Models
 {
@@ -28,6 +29,7 @@ namespace TrendMicroToDatadog.Models
         public string HostOS { get; set; }
         public int HostSecurityPolicyID { get; set; }
         public string HostSecurityPolicyName { get; set; }
+        [JsonPropertyName("Hostname")]
         public string HostName { get; set; }
         public string InfectedFilePath { get; set; }
         public int MajorVirusType { get; set; }
